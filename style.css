@@ -1,253 +1,311 @@
-/* --- Reset Básico y Fuentes --- */
+
+
+/* --- Reset, Fuentes, Variables --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #212529; background-color: #ffffff; }
+html { scroll-behavior: smooth; height: 100%;}
+body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; background-color: #f4f7f9; min-height: 100%; display: flex; flex-direction: column; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-
-/* --- Header Banner --- */
-.banner-header.banner-adaptive-height { width: 100%; padding: 20px 0; background-color: #e3f2fd; text-align: center; overflow: hidden; border-bottom: 1px solid #bbdefb; }
-.banner-adaptive-height picture, .banner-adaptive-height img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1); }
-
-/* --- Área de Contenido Principal --- */
-.content-area { background-color: #f8f9fa; padding: 1px 0; }
-.container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
-h2 { text-align: center; color: #0a3d62; margin-bottom: 15px; font-weight: 700; font-size: 2.2em; padding-top: 20px; }
-.intro-text { text-align: center; color: #0d6efd; margin-bottom: 35px; font-size: 1.15em; max-width: 650px; margin-left: auto; margin-right: auto; }
-
-/* --- Barra de Progreso --- */
-.progress-container { width: 90%; height: 25px; background-color: #e9ecef; border: 1px solid #dee2e6; border-radius: 50px; margin: 0 auto 45px auto; position: relative; overflow: hidden; }
-.progress-bar-inner { height: 100%; width: 0%; background-image: linear-gradient(to right, #ffca2c, #ffb300); border-radius: 50px; transition: width 0.4s ease-out; position: absolute; top: 0; left: 0; }
-.progress-bar-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #403100; font-size: 0.8em; font-weight: 600; z-index: 2; white-space: nowrap; }
-
-/* --- Formulario y Preguntas --- */
-#vocational-test { margin-top: 25px; }
-.question { padding: 25px 15px; /* Menos padding vertical */ margin-bottom: 0; border-bottom: 1px solid rgba(0, 123, 255, 0.15); /* Más suave */ outline: 2px solid transparent; outline-offset: 3px; transition: outline-color 0.4s ease-in-out, background-color 0.4s ease-in-out; border-radius: 5px; }
-.question:last-child { border-bottom: none; padding-bottom: 20px; }
-.question p { font-weight: 400; margin-bottom: 20px; /* Menos margen */ font-size: 1.1em; /* Ligeramente más pequeño */ color: #0a3d62; display: flex; align-items: flex-start; line-height: 1.6; }
-.question .question-number { font-weight: 700; font-size: 1.15em; color: #0d6efd; margin-right: 12px; min-width: 30px; display: inline-block; line-height: 1.5; padding-top: 1px; }
-.question.question-unanswered { background-color: #fff8e1; /* Amarillo más pálido */ outline-color: #ffc107; } /* Borde amarillo */
-.options { display: flex; flex-wrap: wrap; gap: 12px; /* Menos gap */ justify-content: center; padding-left: 42px; /* Ajustar para número */ }
-.options label { flex-basis: calc(33.333% - 12px); min-width: 150px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; background-color: #ffffff; padding: 10px 14px; /* Ligeramente menos padding */ border-radius: 25px; border: 1px solid #ced4da; transition: all 0.2s ease; /* Más rápida */ text-align: center; color: #0b5ed7; font-weight: 400; font-size: 0.9em; /* Más pequeño */ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); position: relative; }
-.options input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
-.options label:hover { background-color: #fff3cd; border-color: #ffe69c; color: #664d03; transform: translateY(-1px); /* Menos hover */ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); }
-.options label:has(input[type="radio"]:focus-visible) { outline: 2px solid #0d6efd; outline-offset: 2px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); }
-.options label:has(input[type="radio"]:checked) { background-color: #0d6efd; color: white; border-color: #0a58ca; box-shadow: 0 2px 6px rgba(13, 110, 253, 0.4); transform: translateY(0px); /* Sin transform al seleccionar */ font-weight: 600; }
-
-/* --- Sistema Base de Botones (sin cambios) --- */
-.button { display: inline-block; padding: 12px 25px; font-family: inherit; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; border: none; border-radius: 8px; transition: all 0.3s ease; vertical-align: middle; }
-.button-primary { color: #ffffff; background-image: linear-gradient(to right, #0d6efd, #0a58ca); box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3); }
-.button-primary:hover, .button-primary:focus { background-image: linear-gradient(to right, #0a58ca, #0b5ed7); box-shadow: 0 6px 20px rgba(13, 110, 253, 0.45); transform: translateY(-2px); color: #ffffff; outline: none; }
-.button-primary:focus-visible { box-shadow: 0 6px 20px rgba(13, 110, 253, 0.45), 0 0 0 3px rgba(13, 110, 253, 0.5); }
-.button-pill { border-radius: 50px; }
-.button-large { padding: 16px 35px; font-size: 1.3em; min-width: 250px; margin: 60px auto 30px auto; display: block; }
-.contact-submit { font-size: 1.15em; padding: 14px 30px; min-width: 200px; margin: 35px auto 20px auto; display: block; }
-
-/* --- Área de Resultado UNIFICADA (#resultado) --- */
-#resultado {
-    margin-top: 40px; padding: 0; background-color: #f8f9fa; /* Fondo general suave */
-    border: 1px solid #dee2e6; /* Borde general */ border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07); /* Sombra suave */
-    opacity: 0; visibility: hidden; transform: translateY(15px);
-    transition: opacity 0.5s ease, visibility 0s 0.5s, transform 0.5s ease; overflow: hidden;
-}
-#resultado.visible { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: 0s; }
-
-/* --- Estilo para Sub-Secciones dentro de #resultado --- */
-.result-section {
-    padding: 25px 30px; /* Padding interno */
-    border-bottom: 1px solid #e9ecef; /* Línea divisoria */
-    background-color: #fff; /* Fondo blanco para contenido */
-}
-.result-section:first-child {
-    border-top-left-radius: 15px; /* Redondear esquinas superiores */
-    border-top-right-radius: 15px;
-}
-.result-section:last-child {
-    border-bottom: none; /* Sin borde inferior en la última */
-    border-bottom-left-radius: 15px; /* Redondear esquinas inferiores */
-    border-bottom-right-radius: 15px;
-}
-.result-section-skills {
-     background-color: #fdfdff; /* Fondo muy sutil para habilidades */
+:root {
+    --primary-color: #0d6efd; --primary-dark: #0a58ca; --primary-light: #e7f1ff;
+    --secondary-color: rgb(255, 206, 0); --secondary-dark: #d39e00; --text-dark: #212529;
+    --text-medium: #495057; --text-light: #6c757d; --bg-light: #f8f9fa;
+    --bg-white: #ffffff; --border-color: #dee2e6; --success-color: #198754;
+    --error-color: #dc3545; --whatsapp-color: #25D366;
 }
 
-/* --- Estilos DENTRO de .result-section-careers --- */
-.result-section-careers .result-title { color: #0a3d62; margin-bottom: 10px; font-size: 1.6em; /* Más pequeño */ text-align: center; font-weight: 700; }
-.result-section-careers .result-intro-text { font-size: 1em; color: #495057; text-align: center; margin-bottom: 8px; }
-/* Puntaje más prominente */
-.result-section-careers .result-score { font-size: 1.1em; color: #343a40; margin-bottom: 25px; text-align: center; font-weight: 400; }
-.result-section-careers .result-score .result-score-value { /* Clase para el valor */
-    font-weight: 700; color: #0d6efd; font-size: 1.2em; /* Más grande */
-    background-color: #e7f1ff; padding: 3px 8px; border-radius: 5px; margin-left: 5px;
+/* --- HERO BANNER (Común a index.html y preregistro.html) --- */
+#hero-banner {
+    height: 100vh; width: 100%; position: relative; display: flex;
+    align-items: center; justify-content: center; text-align: center;
+    overflow: hidden; color: var(--bg-white);
 }
-/* Estilo Tarjeta para Carreras (si hay 2) */
-.result-section-careers .career-list { list-style: none; padding: 0; margin: 20px 0 0 0; display: flex; flex-direction: column; gap: 15px; /* Espacio entre tarjetas */ }
-.result-section-careers .career-list-item {
-    padding: 18px 20px; background-color: #f8f9fa; border: 1px solid #e9ecef; /* Borde tarjeta */
-    border-left: 4px solid #0d6efd; border-radius: 8px; text-align: left;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+/* Contenedor <picture> para el fondo */
+.hero-background {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1; /* Detrás del overlay y contenido */
 }
-.result-section-careers .career-list-item .career-name-in-list { /* Nombre dentro de la tarjeta */
-    color: #0a3d62; font-size: 1.2em; font-weight: 600; margin-bottom: 8px; display: block;
+/* Estilo para la imagen DENTRO de <picture> */
+.hero-background img {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; /* Cubrir todo el área */
+    object-position: center center; /* Centrar imagen */
+    /* Filtro opcional para mejorar contraste con texto */
+    filter: brightness(0.6) contrast(0.9);
 }
-.result-section-careers .career-list-item .career-name-in-list a { color: inherit; text-decoration: none; }
-.result-section-careers .career-list-item .career-name-in-list a:hover { text-decoration: underline; }
-.result-section-careers .career-list-item .career-description-in-list { /* Descripción dentro de tarjeta */
-    font-size: 0.95em; color: #495057; line-height: 1.6;
+/* Overlay oscuro (opcional pero recomendado para legibilidad) */
+#hero-banner::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(74, 96, 190, 0.5), rgba(35, 42, 77, 0.7));
+    z-index: 2; /* Encima de la imagen */
 }
-/* Estilo para Carrera Única */
-.result-section-careers .career-single-name { /* Si solo hay una */
-    color: #0d6efd; margin-top: 0; margin-bottom: 10px; font-size: 1.4em; font-weight: 600; text-align: center;
+/* Contenido superpuesto */
+.hero-content {
+    position: relative; z-index: 3; padding: 20px; max-width: 700px;
+    animation: fadeInHero 1s ease-out forwards;
 }
-.result-section-careers .career-single-name a { color: inherit; text-decoration: none; }
-.result-section-careers .career-single-name a:hover { text-decoration: underline; }
-.result-section-careers .career-single-description { /* Descripción si solo hay una */
-     font-size: 1em; color: #343a40; margin-bottom: 15px; line-height: 1.6; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;
-}
-/* Disclaimer */
-.result-section-careers .result-disclaimer { color: #5a6a79; /* Gris azulado */ font-size: 0.9em; display: block; margin-top: 25px; text-align: center; font-style: italic; }
+@keyframes fadeInHero { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-
-/* --- Estilos DENTRO de .result-section-skills --- */
-.result-section-skills .skills-title-in-result { font-size: 1.5em; /* Un poco más pequeño */ font-weight: 700; color: #0a3d62; margin-bottom: 8px; text-align: center; }
-.result-section-skills .skills-description-in-result { font-size: 0.95em; /* Más pequeño */ color: #495057; text-align: center; max-width: 600px; margin: 0 auto 25px auto; line-height: 1.6; }
-
-/* Contenedor Lista Habilidades (sin cambios visuales) */
-.result-section-skills #skill-list-area { margin-top: 0; margin-bottom: 0; }
-.result-section-skills .skill-percentage-list { list-style: none; padding: 0; margin: 0 auto; max-width: 600px; /* Más ancho */ }
-
-/* Wrapper para LI + Descripción Inline (Mejorado) */
-.skill-item-wrapper {
-    margin-bottom: 8px; /* Espacio entre wrappers */
-    border: 1px solid #e0e5ec; /* Borde más suave */
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 86, 179, 0.05); /* Sombra muy sutil */
-    transition: box-shadow 0.2s ease;
-}
-.skill-item-wrapper:hover {
-     box-shadow: 0 3px 8px rgba(0, 86, 179, 0.08); /* Sombra más grande al pasar */
+/* --- Estilos Específicos Hero Bienvenida (index.html) --- */
+#hero-banner:not(.prereg-hero) .hero-logo {
+    max-width: 180px;
+    margin-bottom: 25px;
+    filter: brightness(1.1); /* Mantiene el brillo del logo si lo deseas */
 }
 
-/* El LI (Parte Clickeable - Mejorado con Flex) */
-.skill-item-wrapper .skill-percentage-list-item {
-    font-size: 1em; /* Tamaño base */ color: #333; display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 18px; cursor: pointer;
-    transition: background-color 0.2s ease;
-    border-bottom: 1px solid transparent; /* Base para borde activo */
-}
-.skill-item-wrapper .skill-percentage-list-item strong { /* Nombre Habilidad */
-    color: #0a3d62; margin-right: 15px; flex-grow: 1; /* Ocupa espacio disponible */
-    font-weight: 600; /* Más peso */
-}
-.skill-item-wrapper .skill-percentage-list-item span { /* Porcentaje */
-    font-weight: 700; /* Más peso */ color: #0d6efd; background-color: #e7f1ff;
-    padding: 4px 10px; border-radius: 5px; font-size: 0.95em; /* Ligeramente más pequeño */
-    white-space: nowrap; margin-left: 10px; flex-shrink: 0; /* No encoger */
-}
-/* Estado Activo del LI */
-.skill-item-wrapper .skill-percentage-list-item.skill-item-active {
-    background-color: #e7f1ff;
-    border-bottom-color: #c5d9f7; /* Borde visible cuando activo */
-}
-.skill-item-wrapper .skill-percentage-list-item:hover:not(.skill-item-active) {
-    background-color: #f8fafd; /* Hover muy sutil si no está activo */
+#hero-banner:not(.prereg-hero) .hero-title {
+    font-size: 3.2em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    letter-spacing: -1px;
+    color: var(--secondary-color); /* <--- Color Amarillo */
 }
 
-/* Descripción Inline (Mejorada) */
-.skill-description-inline {
-    display: none; padding: 15px 20px; background-color: #f8fafd; /* Fondo diferente */
-    font-size: 0.9em; line-height: 1.6; color: #495057; /* Gris más oscuro */
-    border-top: 1px solid #e0e5ec;
-    /* Animación Suave (Opcional) */
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, opacity 0.3s ease-in, padding-top 0.4s ease-out, padding-bottom 0.4s ease-out;
+#hero-banner:not(.prereg-hero) .hero-subtitle {
+    font-size: 1.3em;
+    font-weight: 400;
+    margin-bottom: 40px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Sombra para legibilidad */
+    opacity: 0.9; /* Opacidad ajustada */
+    
 }
-.skill-description-inline.visible {
-    display: block; /* Necesario para que max-height funcione */
-    padding-top: 15px; /* Restaurar padding en transición */
-    padding-bottom: 20px;
-    max-height: 200px; /* Altura máxima estimada */
-    opacity: 1;
+
+#hero-banner:not(.prereg-hero) .hero-button {
+    font-size: 1.3em !important; /* Mantener estilos del botón */
+    padding: 16px 40px !important;
 }
-.skill-description-inline p { margin: 0; }
 
-/* Mensaje de Error dentro de #resultado */
-#resultado .error-message { color: #dc3545; font-weight: bold; margin: 20px auto; /* Centrado si es el único contenido */ font-size: 1.05em; border: 1px dashed #dc3545; padding: 12px; border-radius: 8px; background-color: #f8d7da; text-align: center; max-width: 90%; }
+/* --- Estilos Específicos Hero Pre-Registro (preregistro.html) --- */
+#hero-banner.prereg-hero .hero-content { display: flex; flex-direction: column; justify-content: center; width: 90%; max-width: 500px; padding: 30px 20px; }
+/* Formulario transparente sobre Hero */
+.contact-form-on-dark { width: 100%; text-align: left; margin-top: 20px; }
+.form-title-on-dark { color: var(--bg-white); text-align: center; font-size: 1.8em; font-weight: 700; margin-bottom: 10px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+.form-intro-on-dark { color: rgba(255, 255, 255, 0.85); text-align: center; font-size: 1.05em; margin-bottom: 30px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+.form-label-on-dark { color: rgba(255, 255, 255, 0.9); font-weight: 500; font-size: 0.9em; margin-bottom: 6px; display: block; }
+.form-input-on-dark { width: 100%; padding: 13px 16px; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 8px; font-size: 1em; font-family: 'Poppins', sans-serif; transition: all 0.2s ease; background-color: rgba(0, 0, 0, 0.25); color: var(--bg-white); line-height: 1.6; box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); }
+.form-input-on-dark::placeholder { color: rgba(255, 255, 255, 0.6); opacity: 1; }
+.form-input-on-dark:focus { border-color: var(--bg-white); background-color: rgba(0, 0, 0, 0.35); outline: 0; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2), inset 0 1px 3px rgba(0,0,0,0.2); }
+.contact-form-on-dark .hero-form-button { display: block; width: 100%; margin-top: 20px; }
+.form-status-on-dark { margin-top: 15px; text-align: center; padding: 10px 15px; border-radius: 6px; font-size: 0.95em; font-weight: 500; display: none; color: var(--bg-white); }
+.form-status-on-dark.visible { display: block; }
+.form-status-on-dark.success { background-color: rgba(25, 135, 84, 0.8); border: 1px solid rgba(25, 135, 84, 0.9); }
+.form-status-on-dark.error { background-color: rgba(220, 53, 69, 0.8); border: 1px solid rgba(220, 53, 69, 0.9); }
 
-/* --- Contenedor y Botón de Compartir --- */
-.share-button-wrapper { text-align: center; margin-top: 30px; margin-bottom: 40px; }
-.share-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 28px; font-size: 1.05em; color: #ffffff; background-color: #25D366; border: 1px solid #1DAE51; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); text-decoration: none; }
-.share-button:hover, .share-button:focus { background-color: #1ebe5a; border-color: #25D366; box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4); transform: translateY(-2px); color: #ffffff; outline: none; }
-.share-button:focus-visible { box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4), 0 0 0 3px rgba(37, 211, 102, 0.5); }
-.share-button svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* --- Header Simple (test.html) --- */
+.simple-header { padding: 15px 0; background-color: var(--bg-white); text-align: center; border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
+.header-logo { max-height: 50px; width: auto; }
+
+/* --- Área de Contenido Principal y Container --- */
+.content-area { background-color: var(--bg-light); padding: 40px 0 60px 0; flex-grow: 1; }
+.container { max-width: 800px; margin: 0 auto; padding: 0 15px; }
+
+/* --- Contenedor Página Test (Estilo Original) --- */
+.test-container-original { padding: 20px 15px; margin-top: 0; margin-bottom: 40px; border: 1px solid #dee2e6; border-radius: 12px; background-color: #f8f9fa; box-shadow: none; }
+
+/* --- Visibilidad screen-hidden/visible (Elementos internos test.html) --- */
+.screen-hidden{opacity:0;max-height:0;overflow:hidden;padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;border-width:0 !important;transition:opacity .5s ease-out,max-height .6s ease-out,padding-top .6s ease-out,padding-bottom .6s ease-out,margin-top .6s ease-out,margin-bottom .6s ease-out,border-width .6s step-end;pointer-events:none}
+.screen-visible{opacity:1;max-height:10000px;transition:opacity .5s ease-in,max-height .6s ease-in,padding-top .6s ease-in,padding-bottom .6s ease-in,margin-top .6s ease-in,margin-bottom .6s ease-in,border-width .1s step-start;pointer-events:auto;margin-top:40px !important;margin-bottom:40px !important;padding:30px 35px !important;border-width:1px !important}
+#resultado.screen-visible{padding: 30px 35px !important; margin-top:40px !important;margin-bottom:0 !important} /* Padding restaurado */
+#share-button-container.screen-visible{padding:0 !important;margin-top:30px !important;margin-bottom:40px !important;border:none !important;box-shadow:none !important;background:0 0 !important;text-align:center}
+#contact-section.screen-visible { padding: 35px 40px !important; margin-top: 50px !important; border-width: 1px !important; background-color: var(--bg-white); box-shadow: 0 5px 20px rgba(0, 40, 80, 0.08); border-radius: 12px; border-color: var(--border-color);}
 
 
-/* --- Sección de Contacto (Sin cambios visuales grandes) --- */
-#contact-section { margin-top: 50px; margin-bottom: 40px; padding: 35px 40px; background-color: #ffffff; border: 1px solid #dee2e6; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); text-align: center; opacity: 0; visibility: hidden; transform: translateY(15px); transition: opacity 0.5s ease, visibility 0s 0.5s, transform 0.5s ease; }
-#contact-section.visible { opacity: 1; visibility: visible; transform: translateY(0); transition-delay: 0s; }
-/* ... (Estilos internos de contacto sin cambios) ... */
-#contact-section h3 { color: #0a3d62; margin-bottom: 10px; font-size: 1.7em; }
-#contact-section .contact-intro { color: #495057; margin-bottom: 35px; font-size: 1.1em; max-width: 600px; margin-left: auto; margin-right: auto; }
-#contact-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.form-group { margin-bottom: 25px; position: relative; }
-.form-label { display: block; margin-bottom: 8px; color: #0a3d62; font-weight: 600; font-size: 0.95em; }
-.form-input, .form-textarea { width: 100%; padding: 14px 18px; border: 1px solid #ced4da; border-radius: 8px; font-size: 1em; font-family: 'Poppins', sans-serif; transition: border-color 0.2s ease, box-shadow 0.2s ease; background-color: #f8f9fa; color: #212529; line-height: 1.6; }
-.form-input::placeholder, .form-textarea::placeholder { color: #6c757d; opacity: 0.8; }
-.form-input:focus, .form-textarea:focus { border-color: #0d6efd; background-color: #fff; outline: 0; box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); }
-.form-textarea { resize: vertical; min-height: 120px; }
-.form-status { margin-top: 20px; font-size: 0.95em; font-weight: 500; text-align: center; padding: 10px 15px; border-radius: 8px; border: 1px solid transparent; display: none; }
-.form-status.visible { display: block; }
-.form-status.success { color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; }
-.form-status.error { color: #842029; background-color: #f8d7da; border-color: #f5c2c7; }
+/* --- Botones Rediseñados --- */
+.button{display:inline-flex;align-items:center;justify-content:center;padding:12px 28px;font-family:inherit;font-weight:600;font-size:1em;text-align:center;text-decoration:none;white-space:nowrap;cursor:pointer;border:none;border-radius:8px;transition:all .25s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 3px 8px rgba(0,0,0,.1);position:relative;overflow:hidden}
+.button:hover{transform:translateY(-3px);box-shadow:0 6px 12px rgba(0,0,0,.15)}
+.button:active{transform:translateY(-1px);box-shadow:0 2px 5px rgba(0,0,0,.12)}
+.button:focus-visible{outline:3px solid var(--primary-light);outline-offset:2px;box-shadow:0 0 0 4px rgba(13,110,253,.3)}
+.button-primary{color:var(--bg-white);background:linear-gradient(45deg,var(--primary-color) 0%,#3b82f6 100%);border:1px solid var(--primary-dark)}
+.button-primary:hover{background:linear-gradient(45deg,#3b82f6 0%,var(--primary-color) 100%)}
+.button-secondary{color:var(--primary-dark);background-color:var(--bg-white);border:1px solid var(--primary-color);box-shadow:0 2px 5px rgba(13,110,253,.1)}
+.button-secondary:hover{background-color:var(--primary-light);border-color:var(--primary-dark);color:var(--primary-dark);box-shadow:0 4px 8px rgba(13,110,253,.15)}
+.button-pill{border-radius:50px}
+.button-large{padding:14px 35px;font-size:1.15em}
+.button-xlarge{padding:16px 40px;font-size:1.3em}
+.contact-submit{min-width:200px;font-size:1.1em; display: block; margin-left: auto; margin-right: auto;}
+.submit-test-button{ display: block; margin: 40px auto 20px auto; min-width: 250px;}
+.share-button{background-color:var(--whatsapp-color);border:1px solid #1ebe5a;box-shadow:0 3px 8px rgba(37,211,102,.25); color: var(--bg-white);}
+.share-button:hover{background-color:#1ebe5a;border-color:#128c7e}
+.share-button:focus-visible{box-shadow:0 0 0 4px rgba(37,211,102,.4)}
+.share-button svg{width:18px;height:18px;fill:currentColor}
 
-/* --- Footer --- */
-footer { display: flex; justify-content: center; align-items: center; margin-top: 0; padding: 30px 20px; background-color: #e9ecef; border-top: 1px solid #dee2e6; min-height: 100px; }
-.footer-logo { display: block; max-width: 280px; max-height: 65px; height: auto; width: auto; }
 
-/* Placeholder de carga */
-.loading-placeholder { text-align: center; padding: 40px; color: #6c757d; font-style: italic; font-size: 1.1em; }
+/* --- Formularios Post-Test (Estilo Refinado) --- */
+#contact-section .contact-form-wrapper { max-width: 550px; margin: 0 auto; }
+#contact-section .form-title { color: #0a3d62; margin-bottom: 10px; font-size: 1.7em; text-align: center; }
+#contact-section .form-intro { color: #495057; margin-bottom: 30px; font-size: 1.1em; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; }
+#contact-section .form-group { margin-bottom: 25px; }
+#contact-section .form-label { display: block; margin-bottom: 8px; color: #2a4a67; font-weight: 600; font-size: 0.95em; }
+#contact-section .form-input, #contact-section .form-textarea { width: 100%; padding: 14px 18px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1em; font-family: 'Poppins', sans-serif; transition: all 0.2s ease; background-color: #f8fafc; color: var(--text-dark); line-height: 1.6; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); }
+#contact-section .form-input::placeholder, #contact-section .form-textarea::placeholder { color: var(--text-light); opacity: 0.9; }
+#contact-section .form-input:focus, #contact-section .form-textarea:focus { border-color: var(--primary-color); background-color: var(--bg-white); outline: 0; box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2), inset 0 1px 2px rgba(0,0,0,0.05); }
+#contact-section .form-textarea { resize: vertical; min-height: 120px; }
+#contact-section .form-status { margin-top:15px;font-size:.95em;font-weight:500;text-align:center;padding:10px 15px;border-radius:8px;border:1px solid transparent;display:none}
+#contact-section .form-status.visible{display:block}
+#contact-section .form-status.success{color:#0f5132;background-color:#d1e7dd;border-color:#badbcc}
+#contact-section .form-status.error{color:#842029;background-color:#f8d7da;border-color:#f5c2c7}
 
-/* --- Media Queries (Ajustados para nuevos estilos de resultado) --- */
-@media (max-width: 900px) { .container { max-width: 100%; padding: 0 30px; } }
+
+/* --- ESTILOS ORIGINALES PARA EL TEST (DENTRO DE .test-container-original) --- */
+.test-container-original .original-progress { width: 90%; height: 25px; background-color: #e9ecef; border: 1px solid #dee2e6; border-radius: 50px; margin: 0 auto 45px auto; position: relative; overflow: hidden; }
+.test-container-original .progress-bar-inner { background-image: linear-gradient(to right, #ffca2c, #ffb300); border-radius: 50px; height: 100%; transition: width 0.4s ease-out; position: absolute; top: 0; left: 0; width: 0%; }
+.test-container-original .progress-bar-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 0.8em; color: #403100; font-weight: 600; z-index: 2; white-space: nowrap;}
+.test-container-original .question { padding: 30px 0; margin-bottom: 0; border-bottom: 1px solid rgba(0, 123, 255, 0.2); background-color: transparent; outline-color: transparent; border-radius: 0; transition: outline-color 0.3s ease, background-color 0.3s ease; outline: 2px solid transparent; outline-offset: 3px;}
+.test-container-original .question p { font-weight: 400; margin-bottom: 25px; font-size: 1.15em; color: #0a3d62; line-height: 1.6; display: flex; align-items: flex-start; }
+.test-container-original .question .question-number { font-weight: 700; font-size: 1.25em; color: #0d6efd; margin-right: 15px; min-width: 35px; line-height: 1.5; display: inline-block; padding-top: 1px;}
+.test-container-original .question.question-unanswered { background-color: #fff3cd; outline: 2px solid #ffc107; border-radius: 5px; }
+.test-container-original .options { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; padding-left: 50px; }
+.test-container-original .options label { flex-basis: calc(33.333% - 15px); min-width: 160px; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; background-color: #ffffff; padding: 12px 15px; border-radius: 25px; border: 1px solid #ced4da; transition: all 0.3s ease; text-align: center; color: #0b5ed7; font-weight: 400; font-size: 0.95em; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); position: relative; }
+.test-container-original .options input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+.test-container-original .options label:hover { background-color: #fff3cd; border-color: #ffe69c; color: #664d03; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); }
+.test-container-original .options label:has(input[type="radio"]:focus-visible) { outline: 2px solid #0d6efd; outline-offset: 2px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08); }
+.test-container-original .options label:has(input[type="radio"]:checked) { background-color: #0d6efd; color: white; border-color: #0a58ca; box-shadow: 0 3px 8px rgba(13, 110, 253, 0.4); transform: translateY(-1px); font-weight: 600; }
+.test-error-message { margin-top: 20px; margin-bottom: 15px; text-align: center; min-height: 1.5em; opacity: 0; transition: opacity 0.3s ease-in-out; }
+.test-error-message.visible { opacity: 1; }
+.test-error-message p { color: var(--error-color); background-color: #f8d7da; border: 1px dashed var(--error-color); padding: 10px 15px; border-radius: 8px; font-weight: 500; display: inline-block; max-width: 90%; }
+/* --- Fin Estilos Originales Test --- */
+
+
+/* --- Estilos Resultado (#resultado) - SIN Subsecciones --- */
+#resultado { background-color: var(--bg-white); border-color: #d1d9e2; }
+#resultado .result-title { color: #1e293b; margin-bottom: 10px; font-size: 1.6em; text-align: center; font-weight: 700; padding-top: 10px; }
+#resultado .result-intro-text { font-size: 1em; color: var(--text-medium); text-align: center; margin-bottom: 8px; }
+#resultado .result-score { font-size: 1.05em; color: var(--text-dark); margin-bottom: 25px; text-align: center; font-weight: 500; }
+#resultado .result-score .result-score-value { font-weight: 700; color: var(--primary-dark); font-size: 1.15em; background-color: var(--primary-light); padding: 4px 10px; border-radius: 6px; margin-left: 6px; }
+#resultado .career-list { list-style: none; padding: 0; margin: 20px 0 0 0; display: flex; flex-direction: column; gap: 12px; }
+#resultado .career-list-item { padding: 16px 18px; background-color: #f1f5f9; border: 1px solid #e2e8f0; border-left: 4px solid var(--primary-color); border-radius: 8px; box-shadow: none; text-align: left;}
+#resultado .career-list-item .career-name-in-list { color: #0f172a; font-size: 1.15em; font-weight: 600; margin-bottom: 6px; display: block; }
+#resultado .career-list-item .career-name-in-list a { color: inherit; text-decoration: none; }
+#resultado .career-list-item .career-name-in-list a:hover { text-decoration: underline; }
+#resultado .career-list-item .career-description-in-list { font-size: .9em; color: var(--text-medium); line-height: 1.6; }
+#resultado .career-single-name { color: var(--primary-dark); margin-bottom: 8px; font-size: 1.3em; font-weight: 700; text-align: center; }
+#resultado .career-single-name a { color: inherit; text-decoration: none; }
+#resultado .career-single-name a:hover { text-decoration: underline; }
+#resultado .career-single-description { font-size: .95em; color: var(--text-medium); margin-bottom: 15px; line-height: 1.6; text-align: center; max-width: 550px; margin-left: auto; margin-right: auto; }
+#resultado .result-disclaimer { color: var(--text-light); font-size: .85em; margin-top: 20px; display: block; text-align: center; font-style: italic; }
+#resultado .internal-separator { margin: 35px auto; border: 0; border-top: 1px dashed #cbd5e1; max-width: 80%; }
+#resultado .skills-title-in-result { font-size: 1.4em; font-weight: 700; color: #1e293b; margin-bottom: 8px; text-align: center; padding-top: 10px; }
+#resultado .skills-description-in-result { font-size: .9em; color: var(--text-medium); text-align: center; max-width: 550px; margin: 0 auto 25px auto; line-height: 1.5; }
+#resultado #skill-list-area-dynamic { margin: 0; }
+#resultado .skill-percentage-list { list-style: none; padding: 0; margin: 0 auto; max-width: 580px; }
+#resultado .skill-item-wrapper { margin-bottom: 12px; border: 1px solid #e0e5ec; border-radius: 10px; overflow: hidden; background-color: var(--bg-white); box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: box-shadow 0.2s ease; }
+#resultado .skill-item-wrapper:hover { box-shadow: 0 3px 8px rgba(0, 86, 179, 0.08); }
+#resultado .skill-item-wrapper .skill-percentage-list-item { font-size: 1em; padding: 14px 20px; border-bottom: 1px solid transparent; align-items: center; display: flex; justify-content: space-between; cursor: pointer; transition: background-color .2s ease; }
+#resultado .skill-item-wrapper .skill-percentage-list-item strong { color: #1e293b; font-weight: 600; margin-right: 15px; flex-grow: 1; line-height: 1.4;}
+#resultado .skill-item-wrapper .skill-percentage-list-item span { font-weight: 700; font-size: 1em; padding: 5px 12px; color: var(--primary-dark); background-color: var(--primary-light); border-radius: 6px; white-space: nowrap; margin-left: 15px; flex-shrink: 0; }
+#resultado .skill-item-wrapper .skill-percentage-list-item.skill-item-active { background-color: #e7f1ff; border-bottom-color: #dbe9ff; }
+#resultado .skill-item-wrapper .skill-percentage-list-item:hover:not(.skill-item-active) { background-color: #f8fafc; }
+#resultado .skill-description-inline { background-color: #f8fafc; font-size: 0.9em; border-top: 1px solid #e2e8f0; color: var(--text-medium); display: none; padding: 0; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .4s ease-out,opacity .3s ease-in,padding-top .4s ease-out,padding-bottom .4s ease-out; line-height: 1.6; }
+#resultado .skill-description-inline.visible { display: block; padding: 15px 22px; max-height: 200px; opacity: 1; }
+#resultado .skill-description-inline p { margin: 0; }
+#resultado .error-message { color: var(--error-color); font-weight: 700; margin: 20px auto; font-size: 1.05em; border: 1px dashed var(--error-color); padding: 12px; border-radius: 8px; background-color: #f8d7da; text-align: center; max-width: 90%; }
+
+
+/* --- Botón Compartir --- */
+.share-button-wrapper{text-align:center;margin-top:30px;margin-bottom:40px;padding:0;border:none;box-shadow:none;background:0 0}
+/* Estilos .share-button */
+
+/* --- Contacto Post-Test --- */
+#contact-section { /* Estilos base del contenedor */ }
+/* Estilos internos del form */
+
+/* --- Footer, Placeholder, ScrollTop --- */
+footer{display:flex;justify-content:center;align-items:center;margin-top:auto;padding:25px 20px;background-color:#e2e8f0;border-top:1px solid #cbd5e1;min-height:90px}
+.footer-logo{display:block;max-width:250px;max-height:55px;height:auto;width:auto}
+.loading-placeholder{text-align:center;padding:50px 20px;color:var(--text-light);font-style:italic;font-size:1.1em}
+.scroll-top-btn { position: fixed; bottom: -60px; right: 25px; z-index: 100; background-color: rgba(13, 110, 253, 0.75); color: white; border: none; border-radius: 50%; width: 45px; height: 45px; font-size: 24px; line-height: 45px; text-align: center; cursor: pointer; opacity: 0; transition: bottom 0.4s ease-in-out, opacity 0.4s ease-in-out, background-color 0.2s ease; box-shadow: 0 3px 10px rgba(0,0,0,0.2); }
+.scroll-top-btn:hover { background-color: rgba(10, 88, 202, 0.9); }
+.scroll-top-btn.visible { bottom: 25px; opacity: 1; }
+
+/* --- Media Queries --- */
+@media (max-width:900px){.container{max-width:100%;padding:0 25px}}
+@media (max-width:768px){
+    #hero-banner.prereg-hero .hero-content { max-width: 90%; padding: 25px; }
+    .test-container-original, #contact-section { padding: 25px 20px; }
+    /* Ajustar padding resultado general */
+    #resultado.screen-visible { padding: 20px 25px !important; }
+    /* Ajustar separador visual */
+    #resultado .internal-separator { margin-left: -25px; margin-right: -25px; }
+    .test-container-original .options label { flex-basis: calc(50% - 10px); }
+    .test-container-original .options { padding-left: 40px;}
+}
+@media (max-width:480px){
+    #hero-banner.prereg-hero .hero-content { padding: 20px 15px; }
+    .prereg-form-in-hero { padding: 20px 15px;}
+    .test-container-original, #contact-section { padding: 20px 15px; }
+    /* Ajustar padding resultado general */
+     #resultado.screen-visible { padding: 18px 15px !important; }
+    /* Ajustar separador visual */
+    #resultado .internal-separator { margin-left: -15px; margin-right: -15px; }
+    .test-container-original .options label { flex-basis: 100%; }
+    .test-container-original .options { padding-left: 0; }
+    .submit-test-button { width: 90%; margin-left: auto; margin-right: auto;}
+    .scroll-top-btn { width: 40px; height: 40px; font-size: 20px; line-height: 40px; right: 15px; bottom: 15px;}
+    .scroll-top-btn.visible { bottom: 15px; }
+}
+.prereg-hero .prereg-logo {
+    max-width: 150px; /* Ajusta este valor si quieres más grande o pequeño */
+    height: auto;     /* Mantiene la proporción */
+    margin-bottom: 20px; /* Espacio entre el logo y el título "¡Un paso más...!" */
+    display: block; /* Asegura que ocupe su propio espacio */
+    margin-left: auto;  /* Centra el logo horizontalmente */
+    margin-right: auto; /* Centra el logo horizontalmente */
+    /* Quitamos el filter de index.html si no lo quieres aquí */
+    filter: none; /* Opcional: si no quieres el brillo extra de index.html */
+}
+/* --- HEADER BANNER ADAPTATIVO (Estilo Index Simple) --- */
+
+.banner-header {
+    width: 100%;
+    line-height: 0; /* Evita espacio extra debajo de la imagen */
+    /* Puedes añadir margen inferior si es necesario */
+    /* margin-bottom: 20px; */
+    /* Si quieres bordes redondeados como antes, añádelo aquí */
+     border-radius: 15px; /* O el valor que prefieras */
+     overflow: hidden; /* Necesario para el border-radius */
+}
+
+/* La clase banner-adaptive-height sugiere que no necesita una altura fija,
+   la imagen determinará la altura. */
+
+.banner-header picture {
+    display: block; /* Asegura que ocupe el ancho */
+    line-height: 0; /* Previene espacio fantasma */
+}
+
+.banner-header img {
+    display: block; /* Quita espacio extra debajo */
+    width: 100%; /* Ocupa todo el ancho del header */
+    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+    /* No usamos object-fit: cover aquí, ya que queremos que la imagen dicte la altura */
+    /* Aplicar redondeo si el contenedor lo tiene */
+     border-radius: inherit; /* Hereda del .banner-header */
+}
+
+/* Opcional: Ajustes para diferentes pantallas si es necesario */
+/* Por ejemplo, si quieres diferente redondeo */
 @media (max-width: 768px) {
-    /* ... (Ajustes generales heredados) ... */
-    .result-section { padding: 20px 25px; } /* Menos padding en secciones resultado */
-    .result-section-careers .result-title { font-size: 1.5em; }
-    .result-section-careers .career-list-item { padding: 15px; }
-    .result-section-careers .career-list-item .career-name-in-list { font-size: 1.1em; }
-    .result-section-careers .career-single-name { font-size: 1.3em; }
-    .result-section-careers .career-single-description { font-size: 0.95em; }
-    .result-section-skills .skills-title-in-result { font-size: 1.4em; }
-    .result-section-skills .skills-description-in-result { font-size: 0.9em; }
-    .skill-item-wrapper .skill-percentage-list-item { font-size: 0.95em; padding: 10px 15px;}
-    .skill-description-inline { padding: 12px 15px; font-size: 0.85em;}
-    /* ... (Otros ajustes heredados de tablet) ... */
+    .banner-header {
+        border-radius: 12px;
+    }
 }
 @media (max-width: 480px) {
-    /* ... (Ajustes generales heredados) ... */
-    .question { padding: 20px 10px; } /* Menos padding preguntas */
-    .options { padding-left: 0; }
-    .options label { font-size: 0.85em; padding: 9px 12px;}
-    .result-section { padding: 18px 15px; }
-    .result-section-careers .result-title { font-size: 1.3em; }
-    .result-section-careers .result-intro-text { font-size: 0.9em;}
-    .result-section-careers .result-score { font-size: 1em; }
-    .result-section-careers .result-score .result-score-value { font-size: 1.1em;}
-    .result-section-careers .career-list-item { padding: 12px 15px; }
-    .result-section-careers .career-list-item .career-name-in-list { font-size: 1.05em; }
-    .result-section-careers .career-list-item .career-description-in-list { font-size: 0.9em; }
-    .result-section-careers .career-single-name { font-size: 1.2em; }
-    .result-section-careers .career-single-description { font-size: 0.95em; }
-    .result-section-careers .result-disclaimer { font-size: 0.85em;}
-    .result-section-skills .skills-title-in-result { font-size: 1.2em; }
-    .result-section-skills .skills-description-in-result { font-size: 0.85em; }
-    .skill-item-wrapper .skill-percentage-list-item { font-size: 0.9em; padding: 10px 12px;}
-    .skill-item-wrapper .skill-percentage-list-item strong { margin-right: 10px;}
-    .skill-item-wrapper .skill-percentage-list-item span { font-size: 0.85em; padding: 3px 7px;}
-    .skill-description-inline { padding: 10px 15px; font-size: 0.8em;}
-     /* ... (Otros ajustes heredados de móvil) ... */
+    .banner-header {
+        border-radius: 10px;
+    }
+}
+
+/* Asegúrate que el padding superior de .content-area esté bien */
+.content-area {
+    padding-top: 30px; /* Ajusta este valor según necesites espacio debajo del nuevo banner */
+}
+
+/* Ocultar definitivamente el header simple original si aún existiera */
+.simple-header {
+    display: none !important;
 }
