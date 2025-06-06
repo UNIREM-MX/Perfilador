@@ -309,13 +309,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (topIds.length > 0) {
                 const resultNames = topIds.map(id => carrerasData[id]?.nombreDisplay || 'N/A').join(' | ');
                 let resultadoHTML = '';
+                resultadoHTML += `<div class="result-content-card">`; // <--- INICIO DE LA TARJETA
                 resultadoHTML += `<h3 class="result-title">Resultado: Tu Carrera Ideal</h3>`;
                 resultadoHTML += `<p class="result-score">Puntaje de Afinidad: <span class="result-score-value">${maxScore} / ${maxPossibleScore}</span></p>`;
                 if (topIds.length === 1) { const id = topIds[0]; const c = carrerasData[id]; resultadoHTML += `<p class="result-intro-text">Basado en tus respuestas, la carrera que parece ajustarse mejor a tu perfil es:</p><h4 class="career-single-name"><a href="${c?.url||'#'}" target="_blank" rel="noreferrer">${c?.nombreDisplay||id}</a></h4><p class="career-single-description">${c?.descripcion||'Información detallada no disponible.'}</p><p class="result-disclaimer"><em>Recuerda que este test es una guía inicial. Te recomendamos investigar más sobre esta carrera, hablar con profesionales del área y contactar a nuestros asesores educativos.</em></p>`; }
                 else { const c1 = carrerasData[topIds[0]]; const c2 = carrerasData[topIds[1]]; resultadoHTML += `<p class="result-intro-text" style="margin-top:-15px; margin-bottom: 15px;">Basado en tus respuestas, muestras una afinidad destacada y similar con las siguientes carreras:</p><ul class="career-list">`; [c1, c2].forEach(c => { if(c) resultadoHTML += `<li class="career-list-item"><strong class="career-name-in-list"><a href="${c.url||'#'}" target="_blank" rel="noreferrer">${c.nombreDisplay}</a></strong> <span class="career-description-in-list">${c.descripcion||'Información detallada no disponible.'}</span></li>`; }); resultadoHTML += `</ul><p class="result-disclaimer"><em>Tienes intereses prometedores en ambas áreas. Te recomendamos explorar las dos opciones, comparar planes de estudio y considerar cuál resuena más contigo y tus metas a futuro.</em></p>`; }
                 if (hasSkills) { resultadoHTML += `<hr class="internal-separator"><h3 class="skills-title-in-result">Tu Perfil Detallado de Habilidades</h3><p class="skills-description-in-result">Haz clic en cada habilidad para leer su descripción:</p><div id="${skillPercentageListContainerId}"></div>`; }
                 else if (topIds.length > 0) { resultadoHTML+=`<p class="error-message" style="margin-top: 20px;">No se generó un perfil de habilidades detallado.</p>`; }
-
+                resultadoHTML += `</div>`; // <--- FIN DE LA TARJETA
                 try {
                     if (typeof gtag === 'function') {
                         gtag('event', 'test_complete', {

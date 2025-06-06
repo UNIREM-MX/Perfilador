@@ -1,16 +1,24 @@
-
-
 /* --- Reset, Fuentes, Variables --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; height: 100%;}
 body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; background-color: #f4f7f9; min-height: 100%; display: flex; flex-direction: column; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 :root {
-    --primary-color: #0d6efd; --primary-dark: #0a58ca; --primary-light: #e7f1ff;
-    --secondary-color: rgb(255, 206, 0); --secondary-dark: #d39e00; --text-dark: #212529;
-    --text-medium: #495057; --text-light: #6c757d; --bg-light: #f8f9fa;
-    --bg-white: #ffffff; --border-color: #dee2e6; --success-color: #198754;
-    --error-color: #dc3545; --whatsapp-color: #25D366;
+    --primary-color: #0d6efd;
+    --primary-dark: #0a58ca;
+    --primary-light: #e7f1ff; /* Usaremos este para el fondo de #resultado */
+    --secondary-color: rgb(255, 206, 0);
+    --secondary-dark: #d39e00;
+    --text-dark: #212529;
+    --text-medium: #495057;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+    --bg-white: #ffffff;
+    --border-color: #dee2e6;
+    --success-color: #198754;
+    --error-color: #dc3545;
+    --whatsapp-color: #25D366;
+    --hero-title-color: var(--secondary-color); /* Variable para el título del index */
 }
 
 /* --- HERO BANNER (Común a index.html y preregistro.html) --- */
@@ -29,7 +37,6 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; bac
     display: block; width: 100%; height: 100%;
     object-fit: cover; /* Cubrir todo el área */
     object-position: center center; /* Centrar imagen */
-    /* Filtro opcional para mejorar contraste con texto */
     filter: brightness(0.6) contrast(0.9);
 }
 /* Overlay oscuro (opcional pero recomendado para legibilidad) */
@@ -49,19 +56,17 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; bac
 #hero-banner:not(.prereg-hero) .hero-logo {
     max-width: 180px;
     margin-bottom: 25px;
-    filter: brightness(1.1); /* Mantiene el brillo del logo si lo deseas */
+    filter: brightness(1.1);
 }
-
 #hero-banner:not(.prereg-hero) .hero-title {
     font-size: 3.2em;
     font-weight: 800;
     margin-bottom: 10px;
     line-height: 1.2;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     letter-spacing: -1px;
-    color: var(--secondary-color); /* <--- Color Amarillo */
+    color: var(--hero-title-color);
 }
-
 #hero-banner:not(.prereg-hero) .hero-subtitle {
     font-size: 1.3em;
     font-weight: 400;
@@ -69,18 +74,34 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; bac
     max-width: 550px;
     margin-left: auto;
     margin-right: auto;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Sombra para legibilidad */
-    opacity: 0.9; /* Opacidad ajustada */
-    
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    opacity: 0.9;
+    /* Hereda color blanco de #hero-banner */
 }
-
 #hero-banner:not(.prereg-hero) .hero-button {
-    font-size: 1.3em !important; /* Mantener estilos del botón */
+    font-size: 1.3em !important;
     padding: 16px 40px !important;
 }
 
-/* --- Estilos Específicos Hero Pre-Registro (preregistro.html) --- */
-#hero-banner.prereg-hero .hero-content { display: flex; flex-direction: column; justify-content: center; width: 90%; max-width: 500px; padding: 30px 20px; }
+/* --- Estilos Específicos Hero Pre-Registro (preregistro.html Y contacto.html) --- */
+/* Se aplica a .prereg-hero para que sea reutilizable */
+.prereg-hero .hero-content { /* Ya no necesita #hero-banner si se aplica a .prereg-hero general */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px 20px;
+}
+.prereg-hero .prereg-logo { /* Estilo del logo para estos banners */
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: none;
+}
 /* Formulario transparente sobre Hero */
 .contact-form-on-dark { width: 100%; text-align: left; margin-top: 20px; }
 .form-title-on-dark { color: var(--bg-white); text-align: center; font-size: 1.8em; font-weight: 700; margin-bottom: 10px; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
@@ -96,24 +117,146 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; bac
 .form-status-on-dark.error { background-color: rgba(220, 53, 69, 0.8); border: 1px solid rgba(220, 53, 69, 0.9); }
 
 
-/* --- Header Simple (test.html) --- */
-.simple-header { padding: 15px 0; background-color: var(--bg-white); text-align: center; border-bottom: 1px solid var(--border-color); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); }
-.header-logo { max-height: 50px; width: auto; }
+/* --- Banner para test.html (sin logo superpuesto) --- */
+.banner-header {
+    width: 100%;
+    line-height: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 30px; /* Espacio entre banner y .content-area */
+}
+.banner-header picture {
+    display: block;
+    line-height: 0;
+}
+.banner-header img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+}
+@media (max-width: 768px) { .banner-header { border-radius: 12px; } }
+@media (max-width: 480px) { .banner-header { border-radius: 10px; } }
+.simple-header { display: none !important; } /* Para asegurar que el antiguo header no aparezca */
 
 /* --- Área de Contenido Principal y Container --- */
-.content-area { background-color: var(--bg-light); padding: 40px 0 60px 0; flex-grow: 1; }
+.content-area {
+    background-color: var(--bg-light);
+    padding: 0 0 60px 0; /* Quitamos padding-top ya que el banner da espacio */
+    flex-grow: 1;
+}
 .container { max-width: 800px; margin: 0 auto; padding: 0 15px; }
 
 /* --- Contenedor Página Test (Estilo Original) --- */
-.test-container-original { padding: 20px 15px; margin-top: 0; margin-bottom: 40px; border: 1px solid #dee2e6; border-radius: 12px; background-color: #f8f9fa; box-shadow: none; }
+.test-container-original { padding: 30px 25px; margin-top: 0; margin-bottom: 40px; border: 1px solid #dee2e6; border-radius: 12px; background-color: var(--bg-white); box-shadow: 0 4px 15px rgba(0,40,80,0.06); }
 
 /* --- Visibilidad screen-hidden/visible (Elementos internos test.html) --- */
 .screen-hidden{opacity:0;max-height:0;overflow:hidden;padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;border-width:0 !important;transition:opacity .5s ease-out,max-height .6s ease-out,padding-top .6s ease-out,padding-bottom .6s ease-out,margin-top .6s ease-out,margin-bottom .6s ease-out,border-width .6s step-end;pointer-events:none}
 .screen-visible{opacity:1;max-height:10000px;transition:opacity .5s ease-in,max-height .6s ease-in,padding-top .6s ease-in,padding-bottom .6s ease-in,margin-top .6s ease-in,margin-bottom .6s ease-in,border-width .1s step-start;pointer-events:auto;margin-top:40px !important;margin-bottom:40px !important;padding:30px 35px !important;border-width:1px !important}
-#resultado.screen-visible{padding: 30px 35px !important; margin-top:40px !important;margin-bottom:0 !important} /* Padding restaurado */
-#share-button-container.screen-visible{padding:0 !important;margin-top:30px !important;margin-bottom:40px !important;border:none !important;box-shadow:none !important;background:0 0 !important;text-align:center}
-#contact-section.screen-visible { padding: 35px 40px !important; margin-top: 50px !important; border-width: 1px !important; background-color: var(--bg-white); box-shadow: 0 5px 20px rgba(0, 40, 80, 0.08); border-radius: 12px; border-color: var(--border-color);}
 
+/* --- Estilos Resultado (#resultado) - CON TARJETA INTERNA --- */
+#resultado {
+    background-color: var(--primary-light); /* Fondo azul claro para la sección general */
+    border: 1px solid var(--primary-color);
+    /* El padding/margin principal se maneja con .screen-visible */
+}
+#resultado.screen-visible {
+    padding: 25px 20px !important; /* Padding general para la sección de resultado */
+    margin-top: 40px !important;
+    margin-bottom: 40px !important; /* Espacio después de la sección de resultados */
+    border-width: 1px !important;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(13, 110, 253, 0.15);
+}
+
+/* --- NUEVO: Estilos para la Tarjeta Interna del Contenido del Resultado --- */
+#resultado .result-content-card {
+    background-color: var(--bg-white); /* Fondo blanco para la tarjeta interna */
+    padding: 25px 30px; /* Padding interno de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados para la tarjeta */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Sombra sutil para la tarjeta */
+    margin-bottom: 30px; /* Espacio si hay contenido debajo (como habilidades) */
+    text-align: center; /* Centrar el texto dentro de la tarjeta */
+}
+#resultado .result-content-card .result-title {
+    color: #1e293b; /* Color original */
+    padding-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    font-weight: 700;
+}
+#resultado .result-content-card .result-intro-text {
+    font-size: 1em;
+    color: var(--text-medium);
+    margin-bottom: 8px;
+}
+#resultado .result-content-card .result-score {
+    font-size: 1.05em;
+    color: var(--text-dark);
+    margin-bottom: 20px; /* Ajustar margen */
+    font-weight: 500;
+}
+#resultado .result-content-card .result-score .result-score-value {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.15em;
+    background-color: var(--primary-light); /* Puede quedar así o quitarse si la tarjeta ya es clara */
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-left: 6px;
+}
+#resultado .result-content-card .career-single-name {
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+    font-size: 2em;
+    font-weight: 1100;
+}
+#resultado .result-content-card .career-single-name a { color: inherit; text-decoration: none; }
+#resultado .result-content-card .career-single-name a:hover { text-decoration: underline; }
+
+#resultado .result-content-card .career-single-description {
+    font-size: .95em;
+    color: var(--text-medium);
+    margin-bottom: 15px;
+    line-height: 1.6;
+    max-width: 100%; /* Ajustado para que no se desborde */
+}
+#resultado .result-content-card .result-disclaimer {
+    color: var(--text-light);
+    font-size: .85em;
+    margin-top: 20px;
+    font-style: italic;
+}
+/* Estilos para la lista de carreras (si se muestran múltiples resultados) */
+/* Si la lista está DENTRO de .result-content-card, ajusta estos estilos */
+/* Si está FUERA (como en la sugerencia JS), estos están bien */
+#resultado .career-list { list-style: none; padding: 0; margin: 20px 0 0 0; display: flex; flex-direction: column; gap: 12px; }
+#resultado .career-list-item { padding: 16px 18px; background-color: #f1f5f9; border: 1px solid #e2e8f0; border-left: 4px solid var(--primary-color); border-radius: 8px; box-shadow: none; text-align: left;}
+#resultado .career-list-item .career-name-in-list { color: #0f172a; font-size: 2em; font-weight: 1100; margin-bottom: 6px; display: block; }
+#resultado .career-list-item .career-name-in-list a { color: inherit; text-decoration: none; }
+#resultado .career-list-item .career-name-in-list a:hover { text-decoration: underline; }
+#resultado .career-list-item .career-description-in-list { font-size: .9em; color: var(--text-medium); line-height: 1.6; }
+
+/* Separador y sección de habilidades (FUERA de .result-content-card) */
+#resultado .internal-separator { margin: 0 auto 35px auto; border: 0; border-top: 1px dashed #cbd5e1; max-width: 80%; } /* Ajustado margen superior a 0 */
+#resultado .skills-title-in-result { font-size: 1.4em; font-weight: 700; color: #1e293b; margin-bottom: 8px; text-align: center; padding-top: 10px; }
+#resultado .skills-description-in-result { font-size: .9em; color: var(--text-medium); text-align: center; max-width: 550px; margin: 0 auto 25px auto; line-height: 1.5; }
+#resultado #skill-list-area-dynamic { margin: 0; }
+#resultado .skill-percentage-list { list-style: none; padding: 0; margin: 0 auto; max-width: 580px; }
+#resultado .skill-item-wrapper { margin-bottom: 12px; border: 1px solid #e0e5ec; border-radius: 10px; overflow: hidden; background-color: var(--bg-white); box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: box-shadow 0.2s ease; }
+#resultado .skill-item-wrapper:hover { box-shadow: 0 3px 8px rgba(0, 86, 179, 0.08); }
+#resultado .skill-item-wrapper .skill-percentage-list-item { font-size: 1em; padding: 14px 20px; border-bottom: 1px solid transparent; align-items: center; display: flex; justify-content: space-between; cursor: pointer; transition: background-color .2s ease; }
+#resultado .skill-item-wrapper .skill-percentage-list-item strong { color: #1e293b; font-weight: 600; margin-right: 15px; flex-grow: 1; line-height: 1.4;}
+#resultado .skill-item-wrapper .skill-percentage-list-item span { font-weight: 700; font-size: 1em; padding: 5px 12px; color: var(--primary-dark); background-color: var(--primary-light); border-radius: 6px; white-space: nowrap; margin-left: 15px; flex-shrink: 0; }
+#resultado .skill-item-wrapper .skill-percentage-list-item.skill-item-active { background-color: #e7f1ff; border-bottom-color: #dbe9ff; }
+#resultado .skill-item-wrapper .skill-percentage-list-item:hover:not(.skill-item-active) { background-color: #f8fafc; }
+#resultado .skill-description-inline { background-color: #f8fafc; font-size: 0.9em; border-top: 1px solid #e2e8f0; color: var(--text-medium); display: none; padding: 0; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .4s ease-out,opacity .3s ease-in,padding-top .4s ease-out,padding-bottom .4s ease-out; line-height: 1.6; }
+#resultado .skill-description-inline.visible { display: block; padding: 15px 22px; max-height: 200px; opacity: 1; }
+#resultado .skill-description-inline p { margin: 0; }
+#resultado .error-message { color: var(--error-color); font-weight: 700; margin: 20px auto; font-size: 1.05em; border: 1px dashed var(--error-color); padding: 12px; border-radius: 8px; background-color: #f8d7da; text-align: center; max-width: 90%; }
+
+#share-button-container.screen-visible{padding:0 !important;margin-top:0 !important;margin-bottom:40px !important;border:none !important;box-shadow:none !important;background:0 0 !important;text-align:center} /* Ajustado margen superior */
+#contact-section.screen-visible { padding: 35px 40px !important; margin-top: 0 !important; border-width: 1px !important; background-color: var(--bg-white); box-shadow: 0 5px 20px rgba(0, 40, 80, 0.08); border-radius: 12px; border-color: var(--border-color);} /* Ajustado margen superior */
 
 /* --- Botones Rediseñados --- */
 .button{display:inline-flex;align-items:center;justify-content:center;padding:12px 28px;font-family:inherit;font-weight:600;font-size:1em;text-align:center;text-decoration:none;white-space:nowrap;cursor:pointer;border:none;border-radius:8px;transition:all .25s cubic-bezier(.175,.885,.32,1.275);box-shadow:0 3px 8px rgba(0,0,0,.1);position:relative;overflow:hidden}
@@ -134,7 +277,6 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; bac
 .share-button:focus-visible{box-shadow:0 0 0 4px rgba(37,211,102,.4)}
 .share-button svg{width:18px;height:18px;fill:currentColor}
 
-
 /* --- Formularios Post-Test (Estilo Refinado) --- */
 #contact-section .contact-form-wrapper { max-width: 550px; margin: 0 auto; }
 #contact-section .form-title { color: #0a3d62; margin-bottom: 10px; font-size: 1.7em; text-align: center; }
@@ -149,7 +291,6 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; bac
 #contact-section .form-status.visible{display:block}
 #contact-section .form-status.success{color:#0f5132;background-color:#d1e7dd;border-color:#badbcc}
 #contact-section .form-status.error{color:#842029;background-color:#f8d7da;border-color:#f5c2c7}
-
 
 /* --- ESTILOS ORIGINALES PARA EL TEST (DENTRO DE .test-container-original) --- */
 .test-container-original .original-progress { width: 90%; height: 25px; background-color: #e9ecef; border: 1px solid #dee2e6; border-radius: 50px; margin: 0 auto 45px auto; position: relative; overflow: hidden; }
@@ -168,51 +309,9 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.7; color: #2f353a; bac
 .test-error-message { margin-top: 20px; margin-bottom: 15px; text-align: center; min-height: 1.5em; opacity: 0; transition: opacity 0.3s ease-in-out; }
 .test-error-message.visible { opacity: 1; }
 .test-error-message p { color: var(--error-color); background-color: #f8d7da; border: 1px dashed var(--error-color); padding: 10px 15px; border-radius: 8px; font-weight: 500; display: inline-block; max-width: 90%; }
-/* --- Fin Estilos Originales Test --- */
-
-
-/* --- Estilos Resultado (#resultado) - SIN Subsecciones --- */
-#resultado { background-color: var(--bg-white); border-color: #d1d9e2; }
-#resultado .result-title { color: #1e293b; margin-bottom: 10px; font-size: 1.6em; text-align: center; font-weight: 700; padding-top: 10px; }
-#resultado .result-intro-text { font-size: 1em; color: var(--text-medium); text-align: center; margin-bottom: 8px; }
-#resultado .result-score { font-size: 1.05em; color: var(--text-dark); margin-bottom: 25px; text-align: center; font-weight: 500; }
-#resultado .result-score .result-score-value { font-weight: 700; color: var(--primary-dark); font-size: 1.15em; background-color: var(--primary-light); padding: 4px 10px; border-radius: 6px; margin-left: 6px; }
-#resultado .career-list { list-style: none; padding: 0; margin: 20px 0 0 0; display: flex; flex-direction: column; gap: 12px; }
-#resultado .career-list-item { padding: 16px 18px; background-color: #f1f5f9; border: 1px solid #e2e8f0; border-left: 4px solid var(--primary-color); border-radius: 8px; box-shadow: none; text-align: left;}
-#resultado .career-list-item .career-name-in-list { color: #0f172a; font-size: 1.15em; font-weight: 600; margin-bottom: 6px; display: block; }
-#resultado .career-list-item .career-name-in-list a { color: inherit; text-decoration: none; }
-#resultado .career-list-item .career-name-in-list a:hover { text-decoration: underline; }
-#resultado .career-list-item .career-description-in-list { font-size: .9em; color: var(--text-medium); line-height: 1.6; }
-#resultado .career-single-name { color: var(--primary-dark); margin-bottom: 8px; font-size: 1.3em; font-weight: 700; text-align: center; }
-#resultado .career-single-name a { color: inherit; text-decoration: none; }
-#resultado .career-single-name a:hover { text-decoration: underline; }
-#resultado .career-single-description { font-size: .95em; color: var(--text-medium); margin-bottom: 15px; line-height: 1.6; text-align: center; max-width: 550px; margin-left: auto; margin-right: auto; }
-#resultado .result-disclaimer { color: var(--text-light); font-size: .85em; margin-top: 20px; display: block; text-align: center; font-style: italic; }
-#resultado .internal-separator { margin: 35px auto; border: 0; border-top: 1px dashed #cbd5e1; max-width: 80%; }
-#resultado .skills-title-in-result { font-size: 1.4em; font-weight: 700; color: #1e293b; margin-bottom: 8px; text-align: center; padding-top: 10px; }
-#resultado .skills-description-in-result { font-size: .9em; color: var(--text-medium); text-align: center; max-width: 550px; margin: 0 auto 25px auto; line-height: 1.5; }
-#resultado #skill-list-area-dynamic { margin: 0; }
-#resultado .skill-percentage-list { list-style: none; padding: 0; margin: 0 auto; max-width: 580px; }
-#resultado .skill-item-wrapper { margin-bottom: 12px; border: 1px solid #e0e5ec; border-radius: 10px; overflow: hidden; background-color: var(--bg-white); box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: box-shadow 0.2s ease; }
-#resultado .skill-item-wrapper:hover { box-shadow: 0 3px 8px rgba(0, 86, 179, 0.08); }
-#resultado .skill-item-wrapper .skill-percentage-list-item { font-size: 1em; padding: 14px 20px; border-bottom: 1px solid transparent; align-items: center; display: flex; justify-content: space-between; cursor: pointer; transition: background-color .2s ease; }
-#resultado .skill-item-wrapper .skill-percentage-list-item strong { color: #1e293b; font-weight: 600; margin-right: 15px; flex-grow: 1; line-height: 1.4;}
-#resultado .skill-item-wrapper .skill-percentage-list-item span { font-weight: 700; font-size: 1em; padding: 5px 12px; color: var(--primary-dark); background-color: var(--primary-light); border-radius: 6px; white-space: nowrap; margin-left: 15px; flex-shrink: 0; }
-#resultado .skill-item-wrapper .skill-percentage-list-item.skill-item-active { background-color: #e7f1ff; border-bottom-color: #dbe9ff; }
-#resultado .skill-item-wrapper .skill-percentage-list-item:hover:not(.skill-item-active) { background-color: #f8fafc; }
-#resultado .skill-description-inline { background-color: #f8fafc; font-size: 0.9em; border-top: 1px solid #e2e8f0; color: var(--text-medium); display: none; padding: 0; max-height: 0; opacity: 0; overflow: hidden; transition: max-height .4s ease-out,opacity .3s ease-in,padding-top .4s ease-out,padding-bottom .4s ease-out; line-height: 1.6; }
-#resultado .skill-description-inline.visible { display: block; padding: 15px 22px; max-height: 200px; opacity: 1; }
-#resultado .skill-description-inline p { margin: 0; }
-#resultado .error-message { color: var(--error-color); font-weight: 700; margin: 20px auto; font-size: 1.05em; border: 1px dashed var(--error-color); padding: 12px; border-radius: 8px; background-color: #f8d7da; text-align: center; max-width: 90%; }
-
 
 /* --- Botón Compartir --- */
 .share-button-wrapper{text-align:center;margin-top:30px;margin-bottom:40px;padding:0;border:none;box-shadow:none;background:0 0}
-/* Estilos .share-button */
-
-/* --- Contacto Post-Test --- */
-#contact-section { /* Estilos base del contenedor */ }
-/* Estilos internos del form */
 
 /* --- Footer, Placeholder, ScrollTop --- */
 footer{display:flex;justify-content:center;align-items:center;margin-top:auto;padding:25px 20px;background-color:#e2e8f0;border-top:1px solid #cbd5e1;min-height:90px}
@@ -225,87 +324,22 @@ footer{display:flex;justify-content:center;align-items:center;margin-top:auto;pa
 /* --- Media Queries --- */
 @media (max-width:900px){.container{max-width:100%;padding:0 25px}}
 @media (max-width:768px){
-    #hero-banner.prereg-hero .hero-content { max-width: 90%; padding: 25px; }
+    .prereg-hero .hero-content { max-width: 90%; padding: 25px; } /* Para prereg y contacto */
     .test-container-original, #contact-section { padding: 25px 20px; }
-    /* Ajustar padding resultado general */
     #resultado.screen-visible { padding: 20px 25px !important; }
-    /* Ajustar separador visual */
     #resultado .internal-separator { margin-left: -25px; margin-right: -25px; }
     .test-container-original .options label { flex-basis: calc(50% - 10px); }
     .test-container-original .options { padding-left: 40px;}
 }
 @media (max-width:480px){
-    #hero-banner.prereg-hero .hero-content { padding: 20px 15px; }
-    .prereg-form-in-hero { padding: 20px 15px;}
+    .prereg-hero .hero-content { padding: 20px 15px; } /* Para prereg y contacto */
+    /* .prereg-form-in-hero ya no se usa así */
     .test-container-original, #contact-section { padding: 20px 15px; }
-    /* Ajustar padding resultado general */
      #resultado.screen-visible { padding: 18px 15px !important; }
-    /* Ajustar separador visual */
     #resultado .internal-separator { margin-left: -15px; margin-right: -15px; }
     .test-container-original .options label { flex-basis: 100%; }
     .test-container-original .options { padding-left: 0; }
     .submit-test-button { width: 90%; margin-left: auto; margin-right: auto;}
     .scroll-top-btn { width: 40px; height: 40px; font-size: 20px; line-height: 40px; right: 15px; bottom: 15px;}
     .scroll-top-btn.visible { bottom: 15px; }
-}
-.prereg-hero .prereg-logo {
-    max-width: 150px; /* Ajusta este valor si quieres más grande o pequeño */
-    height: auto;     /* Mantiene la proporción */
-    margin-bottom: 20px; /* Espacio entre el logo y el título "¡Un paso más...!" */
-    display: block; /* Asegura que ocupe su propio espacio */
-    margin-left: auto;  /* Centra el logo horizontalmente */
-    margin-right: auto; /* Centra el logo horizontalmente */
-    /* Quitamos el filter de index.html si no lo quieres aquí */
-    filter: none; /* Opcional: si no quieres el brillo extra de index.html */
-}
-/* --- HEADER BANNER ADAPTATIVO (Estilo Index Simple) --- */
-
-.banner-header {
-    width: 100%;
-    line-height: 0; /* Evita espacio extra debajo de la imagen */
-    /* Puedes añadir margen inferior si es necesario */
-    /* margin-bottom: 20px; */
-    /* Si quieres bordes redondeados como antes, añádelo aquí */
-     border-radius: 15px; /* O el valor que prefieras */
-     overflow: hidden; /* Necesario para el border-radius */
-}
-
-/* La clase banner-adaptive-height sugiere que no necesita una altura fija,
-   la imagen determinará la altura. */
-
-.banner-header picture {
-    display: block; /* Asegura que ocupe el ancho */
-    line-height: 0; /* Previene espacio fantasma */
-}
-
-.banner-header img {
-    display: block; /* Quita espacio extra debajo */
-    width: 100%; /* Ocupa todo el ancho del header */
-    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
-    /* No usamos object-fit: cover aquí, ya que queremos que la imagen dicte la altura */
-    /* Aplicar redondeo si el contenedor lo tiene */
-     border-radius: inherit; /* Hereda del .banner-header */
-}
-
-/* Opcional: Ajustes para diferentes pantallas si es necesario */
-/* Por ejemplo, si quieres diferente redondeo */
-@media (max-width: 768px) {
-    .banner-header {
-        border-radius: 12px;
-    }
-}
-@media (max-width: 480px) {
-    .banner-header {
-        border-radius: 10px;
-    }
-}
-
-/* Asegúrate que el padding superior de .content-area esté bien */
-.content-area {
-    padding-top: 30px; /* Ajusta este valor según necesites espacio debajo del nuevo banner */
-}
-
-/* Ocultar definitivamente el header simple original si aún existiera */
-.simple-header {
-    display: none !important;
 }
